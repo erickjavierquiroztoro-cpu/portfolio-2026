@@ -1,4 +1,4 @@
-# Portafolio — [Tu Nombre]
+# Portafolio — [Erick Javier]
 
 Portafolio profesional en HTML + Bootstrap 5 + CSS + JavaScript.
 ## Estructura
