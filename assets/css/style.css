@@ -1,13 +1,10 @@
 /* ==========================================================================
-   TOKENS DE DISEÑO
-   Todo color/tipografía del sitio se deriva de estas variables. Nunca
-   hardcodear un color suelto en un componente: se edita acá y se propaga
-   a todo el sitio.
+ Diseño de la pagina
    ========================================================================== */
 :root {
   --ink: #15150f;
   --paper: #efefe9;
-  --stone: #5a5850;
+  --stone: #525a58;
   --stone-soft: #8a8878;
   --line: #d9d7cd;
   --surface: #ffffff;
@@ -123,9 +120,6 @@ h3,
 
 /* ==========================================================================
    NAVBAR
-   Fixed-top nativo de Bootstrap. Nada de position:absolute a mano ni
-   transforms propios: eso es justamente lo que rompía la navegación móvil
-   en la versión anterior del proyecto.
    ========================================================================== */
 .navbar-custom {
   background-color: transparent;
@@ -177,8 +171,7 @@ h3,
   border-color: var(--fg);
 }
 
-/* Offcanvas (menú móvil): se personaliza el look, no el comportamiento —
-   el comportamiento (scroll-lock, foco, backdrop) lo maneja Bootstrap. */
+
 .offcanvas-custom {
   background-color: var(--bg);
   color: var(--fg);
@@ -378,9 +371,6 @@ h3,
   animation: rotate 24s linear infinite;
 }
 
-/* Variante con foto real: la imagen llena el círculo por completo (el borde
-   exterior del .seal actúa como el marco/bisel), sin el anillo punteado
-   interior, que quedaría raro superpuesto a una cara. */
 .seal-photo {
   overflow: hidden;
   padding: 0;
@@ -593,8 +583,6 @@ h3,
   transform: translateY(0);
 }
 
-/* Stagger sutil: cuando varias tarjetas/columnas de una misma fila entran en
-   viewport juntas (servicios, tecnologías), no aparecen todas a la vez. */
 .row > .reveal:nth-child(2) {
   transition-delay: 0.08s;
 }
@@ -649,9 +637,7 @@ h3,
   padding-bottom: 0;
 }
 
-/* Alto mínimo generoso: le da "tiempo de lectura" a cada bloque antes de que
-   el próximo tome el control de la imagen. Sin esto, los bloques cortos
-   harían que la imagen cambie demasiado rápido al hacer scroll. */
+
 @media (min-width: 992px) {
   .scroll-gallery__item {
     min-height: 55vh;
@@ -707,7 +693,6 @@ h3,
   color: var(--muted);
 }
 
-/* Fallback mobile: imagen en línea, sin sticky ni crossfade */
 .scroll-gallery__media-inline {
   aspect-ratio: 16 / 10;
   border: 1px solid var(--border);
@@ -733,13 +718,7 @@ h3,
   font-size: 1.75rem;
   color: var(--muted);
 }
-/* ==========================================================================
-   FONDO DE GRADIENTE ANIMADO (Hero)
-   Canvas 2D con "blobs" de color difuminados que se mueven lentamente.
-   mix-blend-mode cambia según el tema: "screen" aclara sobre fondo oscuro,
-   "multiply" oscurece sobre fondo claro — sin esto, los blobs se ven lavados
-   o directamente invisibles en uno de los dos modos.
-   ========================================================================== */
+
 .gradient-canvas {
   position: absolute;
   inset: 0;
