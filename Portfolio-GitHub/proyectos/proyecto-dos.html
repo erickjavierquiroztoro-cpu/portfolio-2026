@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Biblioteca Digital UNTEC — Caso de estudio</title>
+    <meta name="description" content="Sistema de catálogo y préstamos de una biblioteca con Java, Servlets, JSP y control de acceso por roles." />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    
+    <link rel="stylesheet" href="../assets/css/style.css" />
+  </head>
+
+  <body>
+    <nav class="navbar navbar-custom is-scrolled py-3">
+      <div class="container">
+        <a class="navbar-brand navbar-brand-seal" href="../index.html">◜E◞</a>
+        <button type="button" class="theme-toggle" data-theme-toggle aria-label="Cambiar tema">
+          <i class="bi bi-moon-stars" data-theme-icon></i>
+        </button>
+      </div>
+    </nav>
+
+    <main class="section" style="border-top: none; padding-top: 9rem">
+      <div class="container" style="max-width: 48rem">
+        <a
+          href="../index.html#proyectos"
+          class="link-underline d-inline-flex align-items-center gap-2 text-muted-custom text-decoration-none small mb-5"
+        >
+          <i class="bi bi-arrow-left"></i> Volver a proyectos
+        </a>
+
+        <div class="eyebrow d-flex align-items-center gap-2 mb-3">
+          <span><span class="status-dot"></span>Completado</span>
+          <span>·</span>
+          <span>2026</span>
+        </div>
+
+        <h1 class="section-title mb-4">Biblioteca Digital UNTEC</h1>
+
+        <p class="fs-5 text-muted-custom" style="max-width: 34rem">
+          Sistema de gestión de catálogo y préstamos de una biblioteca, con permisos
+          distintos según el rol de cada usuario.
+        </p>
+
+        <div class="d-flex flex-wrap gap-2 mb-4">
+          <span class="badge-custom">Java</span>
+          <span class="badge-custom">Servlets</span>
+          <span class="badge-custom">JSP</span>
+          <span class="badge-custom">JSTL</span>
+          <span class="badge-custom">JDBC</span>
+          <span class="badge-custom">MySQL</span>
+        </div>
+
+        <div class="d-flex gap-3 mb-5">
+          <!-- Link del repositorio GitHub -->
+          <a href="https://github.com/erickjavierquiroztoro-cpu/biblioteca-untec" class="btn-ghost-custom"><i class="bi bi-github"></i> Repositorio</a>
+        </div>
+
+        <div
+          class="project-thumb mb-5"
+          style="aspect-ratio: 16/9; border: 1px solid var(--border); border-radius: 1rem"
+        >
+          <i class="bi bi-book-half" style="font-size: 2rem"></i>
+        </div>
+
+        <div class="row g-5 pt-4" style="border-top: 1px solid var(--border)">
+          <div class="col-md-6">
+            <h2 class="eyebrow mb-3">Problema</h2>
+            <p>
+              La biblioteca necesita llevar el catálogo de libros y sus préstamos, pero con
+              distintos niveles de permiso: un administrador con control total, un
+              bibliotecario que registra libros y gestiona préstamos, y un usuario que solo
+              puede consultar el catálogo y los préstamos activos, sin alterar nada.
+            </p>
+          </div>
+          <div class="col-md-6">
+            <h2 class="eyebrow mb-3">Solución</h2>
+            <p>
+              Aplicación Java EE clásica construida con Servlets y JSP (JSTL en las vistas),
+              desplegada como WAR sobre Tomcat, con acceso a MySQL vía JDBC siguiendo el
+              patrón DAO. Un <code>Filter</code> (<code>AuthFilter</code>) centraliza todo el
+              control de acceso de la aplicación: deja pasar libremente las rutas públicas,
+              bloquea el acceso directo por URL a las pantallas de alta según el rol, exige
+              sesión activa para el resto, y guarda la URL solicitada antes de redirigir al
+              login para devolver al usuario exactamente a donde quería ir una vez
+              autenticado.
+            </p>
+          </div>
+        </div>
+
+        <div class="pt-4 mt-5" style="border-top: 1px solid var(--border)">
+          <h2 class="eyebrow mb-3">Detalles técnicos</h2>
+          <ul class="text-muted-custom">
+            <li>Tres roles (ADMIN, BIBLIOTECARIO, USUARIO) con permisos distintos sobre libros y préstamos, validados en un único filtro para toda la app.</li>
+            <li>CRUD de libros y préstamos con las reglas de negocio en el servlet (registrar, devolver, eliminar).</li>
+            <li>Acceso a datos con el patrón DAO y JDBC puro, sin ORM, incluyendo un JOIN para mostrar el título del libro en cada préstamo sin consultas extra.</li>
+            <li>Manejo de errores con logging (<code>java.util.logging</code>) en lugar de <code>printStackTrace()</code>.</li>
+            <li>Login con redirección a la URL originalmente solicitada tras autenticarse.</li>
+          </ul>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer-custom">
+      <div class="container d-flex justify-content-between align-items-center">
+        <p class="text-muted-custom small mb-0">
+          © <span id="year"></span> ◜Erick Javier◞. Todos los derechos reservados.
+        </p>
+        <a href="../index.html" class="link-underline small text-decoration-none">Volver al inicio</a>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/main.js"></script>
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>

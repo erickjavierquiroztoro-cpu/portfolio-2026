@@ -1,0 +1,725 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="Erick - erickjavierquiroztoro@gmail.com">
+  <meta name="robots" content="index, follow">
+  <meta name="keyboards" content="HTML5, CSS, bootstraps, JavaScript, jQuery">
+
+  <!-- Logo página -->
+  <link rel="shortcut icon" href="assets/img/filter-highpass-svgrepo-com.svg" type="image/x-icon">
+ 
+  <title>Erick Javier— Creative developer FullStack</title>
+  <meta name="description"
+    content="Portafolio profesional de Erick Javier Quiroz Toro, desarrollador Full Stack especializado en Java, Spring Boot y tecnologías web modernas." />
+
+  <!-- Bootstrap 5 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+  <!-- Bootstrap Icons ( GitHub, LinkedIn, WhatsApp.) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <!-- Tipografía -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet" />
+  <!-- Estilos propios -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+
+<body> <!-- ============ PAGINA DE CARGA ============ -->
+  <div class="page-loader" id="pageLoader" aria-live="polite">
+    <span class="page-loader__mark" id="loaderMark" aria-hidden="true">◜E◞</span>
+    <span class="page-loader__percent" id="loaderPercent">1%</span>
+  </div>
+  <!-- ================= NAVBAR ================= -->
+  <nav class="navbar navbar-expand-lg fixed-top navbar-custom py-3">
+    <div class="container">
+      <a class="navbar-brand navbar-brand-seal" id="siteBrand" href="#inicio">◜E◞</a>
+
+      <!-- Acciones visibles siempre: toggle de tema + botón hamburguesa -->
+      <div class="d-flex align-items-center gap-2 order-lg-3">
+        <button type="button" class="theme-toggle" data-theme-toggle aria-label="Cambiar tema">
+          <i class="bi bi-moon-stars" data-theme-icon></i>
+        </button>
+        <button class="navbar-toggler border-0 p-0 d-lg-none" type="button" data-bs-toggle="offcanvas"
+          data-bs-target="#mobileMenu" aria-controls="mobileMenu" aria-label="Abrir menú">
+          <i class="bi bi-list fs-2" style="color: var(--fg)"></i>
+        </button>
+      </div>
+
+      <!-- Navegación desktop -->
+      <div class="collapse navbar-collapse d-none d-lg-flex justify-content-end order-lg-2">
+        <ul class="navbar-nav gap-lg-4">
+          <li class="nav-item"><a class="nav-link" href="#sobre-mi">Sobre mí</a></li>
+          <li class="nav-item"><a class="nav-link" href="#tecnologias">Tecnologías</a></li>
+          <li class="nav-item"><a class="nav-link" href="#servicios">Servicios</a></li>
+          <li class="nav-item"><a class="nav-link" href="#proyectos">Proyectos</a></li>
+          <li class="nav-item"><a class="nav-link" href="#experiencia">Experiencia</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ================= MENÚ MÓVIL ================= -->
+  <div class="offcanvas offcanvas-end offcanvas-custom" tabindex="-1" id="mobileMenu" aria-labelledby="mobileMenuLabel">
+    <div class="offcanvas-header">
+      <span class="navbar-brand-seal" id="mobileMenuLabel">◜E◞</span>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Cerrar"
+        style="filter: var(--bs-btn-close-white-filter, none)"></button>
+    </div>
+    <div class="offcanvas-body d-flex flex-column">
+      <ul class="navbar-nav flex-grow-1">
+        <li class="nav-item"><a class="nav-link" href="#sobre-mi">Sobre mí</a></li>
+        <li class="nav-item"><a class="nav-link" href="#tecnologias">Tecnologías</a></li>
+        <li class="nav-item"><a class="nav-link" href="#servicios">Servicios</a></li>
+        <li class="nav-item"><a class="nav-link" href="#proyectos">Proyectos</a></li>
+        <li class="nav-item"><a class="nav-link" href="#experiencia">Experiencia</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+      </ul>
+      <a href="#contacto" class="btn-primary-custom mt-4">
+        Contacto <i class="bi bi-arrow-right"></i>
+      </a>
+    </div>
+  </div>
+
+  <main>
+    <!-- ================= HERO ================= -->
+    <section id="inicio" class="d-flex align-items-center position-relative overflow-hidden"
+      style="min-height: 100vh; padding-top: 6rem">
+      <canvas id="gradient-canvas" class="gradient-canvas" aria-hidden="true"></canvas>
+      <div class="container position-relative" style="z-index: 1">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-7">
+            <div class="hero-status mb-4">
+              <span class="pulse-dot"></span>
+              <span class="eyebrow mb-0">Disponible para nuevos proyectos</span>
+            </div>
+            <h1 class="hero-title mb-0">
+              <span class="mask-line"><span>Desarrollador</span></span>
+              <span class="mask-line"><span>FullStack</span></span>
+            </h1>
+
+            <p class="mt-4 text-muted-custom fs-5 reveal" style="max-width: 32rem">
+              Construyo interfaces cuidadas y sistemas backend en Java, con atención al
+              detalle en cada línea de código.
+            </p>
+
+            <div class="mt-4 d-flex flex-wrap gap-3 reveal">
+              <a href="#proyectos" class="btn-primary-custom">Ver proyectos</a>
+              <a href="#contacto" class="btn-ghost-custom">Contactar</a>
+            </div>
+          </div>
+
+          <div class="col-lg-5 d-none d-lg-flex justify-content-center reveal">
+            <div class="seal seal-video">
+              <span class="seal-initials" data-seal-fallback>PORTAFOLIO</span>
+              <video
+                id="heroShowcaseVideo"
+                muted
+                loop
+                playsinline
+                preload="auto"
+                aria-hidden="true"
+              >
+                <source src="assets/video/hero-showcase.mp4" type="video/mp4" />
+              </video>
+              <canvas id="heroShowcaseCanvas" aria-hidden="true"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="position-absolute bottom-0 start-50 translate-middle-x d-none d-sm-flex flex-column align-items-center gap-2 mb-4"
+        style="z-index: 1">
+        <span class="eyebrow mb-0">Scroll</span>
+        <div class="scroll-cue"></div>
+      </div>
+    </section>
+
+    <!-- ================= SOBRE MÍ ================= -->
+    <section id="sobre-mi" class="section">
+      <div class="container">
+        <span class="eyebrow d-block mb-3 reveal">01 — Sobre mí</span>
+        <h2 class="section-title mask-line"><span>Sobre mí</span></h2>
+
+        <div class="scroll-gallery">
+          <div class="row g-5">
+            <div class="col-lg-6">
+              <div class="scroll-gallery__list">
+                
+                <div class="scroll-gallery__item" data-gallery-index="0">
+                  <div style="max-width: 30rem">
+      
+                    <p class="text-muted-custom fs-5 reveal">
+                      Soy un desarrollador Full Stack enfocado en crear aplicaciones web completas,
+                      desde la lógica de negocio hasta construir interfaces web cuidadas y accesibles.
+                    </p>
+                    <p class="text-muted-custom fs-5 reveal">
+                      Me interesa la parte donde el código y el diseño se encuentran:
+                      escribir sistemas sólidos por dentro, con una experiencia clara y
+                      prolija por fuera.
+                    </p>
+                  </div>
+                 
+                  <div class="scroll-gallery__media-inline d-lg-none mt-4">
+                    <img src="assets/img/image.01.jpg" alt="Foto de Erick Javier" />
+                  </div>
+                </div>
+
+                
+                <div class="scroll-gallery__item" data-gallery-index="1">
+                  <ul class="list-unstyled pt-4" style="border-top: 1px solid var(--border)">
+                    <li class="d-flex align-items-baseline gap-2 mb-3">
+                      <span class="status-dot"></span>Atención al detalle en cada entrega
+                    </li>
+                    <li class="d-flex align-items-baseline gap-2 mb-3">
+                      <span class="status-dot"></span>Código legible y mantenible, sin atajos
+                    </li>
+                    <li class="d-flex align-items-baseline gap-2 mb-0">
+                      <span class="status-dot"></span>Aprendizaje constante, buscando siempre mejorar mis habilidades
+                    </li>
+                  </ul>
+                  <div class="scroll-gallery__media-inline d-lg-none mt-4">
+                    <i class="bi bi-gem"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6 d-none d-lg-block">
+              <div class="scroll-gallery__media-wrap">
+                <div class="scroll-gallery__media">
+                  <div class="scroll-gallery__media-item is-active" data-gallery-index="0">
+                    <img src="assets/img/image.01.jpg" alt="Foto de Tu Nombre" />
+                  </div>
+                  <div class="scroll-gallery__media-item" data-gallery-index="1">
+                    <div class="d-flex flex-column align-items-center gap-3 px-4 text-center">
+                      <i class="bi bi-briefcase"></i>
+                      <span class="eyebrow mb-0">Cómo trabajo</span>
+                      <p class="mb-0">Precisión, código legible, escalable y aprendizaje constante.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= TECNOLOGÍAS ================= -->
+    <section id="tecnologias" class="section">
+      <div class="container">
+        <span class="eyebrow d-block mb-3 reveal">02 — Tecnologías</span>
+        <h2 class="section-title mask-line"><span>Con qué trabajo</span></h2>
+
+        <div class="row g-4">
+          <div class="col-6 col-lg-3 reveal">
+            <h3 class="eyebrow mb-3">Frontend</h3>
+            <div class="d-flex flex-wrap gap-2">
+              <span class="badge-custom">HTML</span>
+              <span class="badge-custom">CSS</span>
+              <span class="badge-custom">JavaScript</span>
+              <span class="badge-custom">jQuery</span>
+              <span class="badge-custom">Bootstrap</span>
+            </div>
+          </div>
+          <div class="col-6 col-lg-3 reveal">
+            <h3 class="eyebrow mb-3">Backend</h3>
+            <div class="d-flex flex-wrap gap-2">
+              <span class="badge-custom">Java</span>
+              <span class="badge-custom">Spring Boot</span>
+              <span class="badge-custom">Spring Security</span>
+              <span class="badge-custom">REST APIs</span>
+            </div>
+          </div>
+          <div class="col-6 col-lg-3 reveal">
+            <h3 class="eyebrow mb-3">Base de datos</h3>
+            <div class="d-flex flex-wrap gap-2">
+              <span class="badge-custom">MySQL</span>
+              <span class="badge-custom">JDBC</span>
+              <span class="badge-custom">JPA / Hibernate</span>
+            </div>
+          </div>
+          <div class="col-6 col-lg-3 reveal">
+            <h3 class="eyebrow mb-3">Herramientas</h3>
+            <div class="d-flex flex-wrap gap-2">
+              <span class="badge-custom">Git</span>
+              <span class="badge-custom">GitHub</span>
+              <span class="badge-custom">VS Code</span>
+              <span class="badge-custom">Postman</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SERVICIOS ================= -->
+    <section id="servicios" class="section">
+      <div class="container">
+        <span class="eyebrow d-block mb-3 reveal">03 — Servicios</span>
+        <h2 class="section-title mask-line"><span>En qué puedo ayudarte</span></h2>
+
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-4 reveal">
+            <div class="card-custom p-4 h-100">
+              <i class="bi bi-layout-text-window text-brass fs-3"></i>
+              <h3 class="h5 mt-4 mb-2">Landing Pages</h3>
+              <p class="text-muted-custom mb-0 small">
+                Páginas de una sola sección, rápidas y enfocadas en conversión.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 reveal">
+            <div class="card-custom p-4 h-100">
+              <i class="bi bi-globe2 text-brass fs-3"></i>
+              <h3 class="h5 mt-4 mb-2">Sitios Web</h3>
+              <p class="text-muted-custom mb-0 small">
+                Sitios institucionales multi-página, con contenido bien organizado.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 reveal">
+            <div class="card-custom p-4 h-100">
+              <i class="bi bi-window-stack text-brass fs-3"></i>
+              <h3 class="h5 mt-4 mb-2">Aplicaciones Web</h3>
+              <p class="text-muted-custom mb-0 small">
+                Productos con lógica de negocio real: autenticación, datos, paneles.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 reveal">
+            <div class="card-custom p-4 h-100">
+              <i class="bi bi-graph-up-arrow text-brass fs-3"></i>
+              <h3 class="h5 mt-4 mb-2">Optimización SEO</h3>
+              <p class="text-muted-custom mb-0 small">
+                Estructura semántica y performance para mejorar el posicionamiento.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 reveal">
+            <div class="card-custom p-4 h-100">
+              <i class="bi bi-tools text-brass fs-3"></i>
+              <h3 class="h5 mt-4 mb-2">Mantenimiento</h3>
+              <p class="text-muted-custom mb-0 small">
+                Actualizaciones, correcciones y mejoras continuas post-lanzamiento.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 reveal">
+            <div class="card-custom p-4 h-100">
+              <i class="bi bi-plug text-brass fs-3"></i>
+              <h3 class="h5 mt-4 mb-2">Integración de APIs</h3>
+              <p class="text-muted-custom mb-0 small">
+                Conexión con servicios externos y backends propios en Java.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PROYECTOS ================= -->
+    <section id="proyectos" class="section">
+      <div class="container">
+        <span class="eyebrow d-block mb-3 reveal">04 — Proyectos</span>
+        <h2 class="section-title mask-line"><span>Proyectos destacados</span></h2>
+
+        <div class="scroll-gallery">
+          <div class="row g-5">
+            <div class="col-lg-6">
+              <div class="scroll-gallery__list">
+                <!-- Proyecto 1: SpringEduManager -->
+                <div class="scroll-gallery__item" data-gallery-index="0">
+                  <div class="d-flex justify-content-between eyebrow mb-3">
+                    <span><span class="status-dot"></span>Completado</span>
+                    <span>2026</span>
+                  </div>
+                  <h3 class="h4 mb-2">Spring Edu Manager</h3>
+                  <p class="text-muted-custom">
+                    Plataforma de gestión de estudiantes y cursos con control de acceso por
+                    roles y una API REST propia.
+                  </p>
+                  <div class="d-flex flex-wrap gap-2 mb-3">
+                    <span class="badge-custom">Java</span>
+                    <span class="badge-custom">Spring Boot</span>
+                    <span class="badge-custom">Spring Security</span>
+                    <span class="badge-custom">Spring Data JPA</span>
+                    <span class="badge-custom">MySQL</span>
+                  </div>
+                  <div class="d-flex align-items-center gap-3 pt-3" style="border-top: 1px solid var(--border)">
+                    <!-- Link del repositorio GitHub -->
+                    <a href="https://github.com/erickjavierquiroztoro-cpu/springedumanager" class="text-muted-custom" aria-label="Repositorio en GitHub"><i
+                        class="bi bi-github fs-5"></i></a>
+                    <a href="proyectos/proyecto-uno.html" class="link-underline ms-auto small text-decoration-none">Ver caso de
+                      estudio</a>
+                  </div>
+                  <div class="scroll-gallery__media-inline d-lg-none mt-4">
+                    <i class="bi bi-mortarboard"></i>
+                  </div>
+                </div>
+
+                <!-- Proyecto 2: Biblioteca Digital UNTEC -->
+                <div class="scroll-gallery__item" data-gallery-index="1">
+                  <div class="d-flex justify-content-between eyebrow mb-3">
+                    <span><span class="status-dot"></span>Completado</span>
+                    <span>2026</span>
+                  </div>
+                  <h3 class="h4 mb-2">Biblioteca Digital UNTEC</h3>
+                  <p class="text-muted-custom">
+                    Sistema de catálogo y préstamos de una biblioteca, con permisos distintos
+                    según el rol de cada usuario.
+                  </p>
+                  <div class="d-flex flex-wrap gap-2 mb-3">
+                    <span class="badge-custom">Java</span>
+                    <span class="badge-custom">Servlets</span>
+                    <span class="badge-custom">JSP</span>
+                    <span class="badge-custom">JDBC</span>
+                    <span class="badge-custom">MySQL</span>
+                  </div>
+                  <div class="d-flex align-items-center gap-3 pt-3" style="border-top: 1px solid var(--border)">
+                    <!-- Link del repositorio GitHub -->
+                    <a href="https://github.com/erickjavierquiroztoro-cpu/biblioteca-untec" class="text-muted-custom" aria-label="Repositorio en GitHub"><i
+                        class="bi bi-github fs-5"></i></a>
+                    <a href="proyectos/proyecto-dos.html" class="link-underline ms-auto small text-decoration-none">Ver caso de
+                      estudio</a>
+                  </div>
+                  <div class="scroll-gallery__media-inline d-lg-none mt-4">
+                    <i class="bi bi-book-half"></i>
+                  </div>
+                </div>
+
+                <!-- Proyecto 3: Alke Wallet -->
+                <div class="scroll-gallery__item" data-gallery-index="2">
+                  <div class="d-flex justify-content-between eyebrow mb-3">
+                    <span><span class="status-dot"></span>Completado</span>
+                    <span>2026</span>
+                  </div>
+                  <h3 class="h4 mb-2">Alke Wallet</h3>
+                  <p class="text-muted-custom">
+                    Billetera digital simulada para depositar, retirar, transferir a contactos
+                    y revisar el historial de movimientos.
+                  </p>
+                  <div class="d-flex flex-wrap gap-2 mb-3">
+                    <span class="badge-custom">JavaScript</span>
+                    <span class="badge-custom">jQuery</span>
+                    <span class="badge-custom">Bootstrap</span>
+                  </div>
+                  <div class="d-flex align-items-center gap-3 pt-3" style="border-top: 1px solid var(--border)">
+                    <!-- Link del repositorio GitHub -->
+                    <a href="https://github.com/erickjavierquiroztoro-cpu/billetera-alkewallet-2026" class="text-muted-custom" aria-label="Repositorio en GitHub"><i
+                        class="bi bi-github fs-5"></i></a>
+                    <a href="proyectos/proyecto-tres.html" class="link-underline ms-auto small text-decoration-none">Ver caso de
+                      estudio</a>
+                  </div>
+                  <div class="scroll-gallery__media-inline d-lg-none mt-4">
+                    <i class="bi bi-wallet2"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6 d-none d-lg-block">
+              <div class="scroll-gallery__media-wrap">
+                <div class="scroll-gallery__media">
+                  <div class="scroll-gallery__media-item is-active" data-gallery-index="0">
+                    <i class="bi bi-mortarboard"></i>
+                  </div>
+                  <div class="scroll-gallery__media-item" data-gallery-index="1">
+                    <i class="bi bi-book-half"></i>
+                  </div>
+                  <div class="scroll-gallery__media-item" data-gallery-index="2">
+                    <i class="bi bi-wallet2"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PROCESO ================= -->
+    <section id="proceso" class="section">
+      <div class="container">
+        <span class="eyebrow d-block mb-3 reveal">05 — Proceso</span>
+        <h2 class="section-title mask-line"><span>Cómo trabajo</span></h2>
+
+        <div class="row g-4">
+          <div class="col-6 col-lg-3 reveal">
+            <div class="pt-3" style="border-top: 1px solid var(--border)">
+              <span class="eyebrow font-mono">01</span>
+              <h3 class="h5 mt-3 mb-2">Descubrimiento</h3>
+              <p class="text-muted-custom small">
+                Entender el objetivo real detrás del pedido y qué define el éxito.
+              </p>
+            </div>
+          </div>
+          <div class="col-6 col-lg-3 reveal">
+            <div class="pt-3" style="border-top: 1px solid var(--border)">
+              <span class="eyebrow font-mono">02</span>
+              <h3 class="h5 mt-3 mb-2">Diseño</h3>
+              <p class="text-muted-custom small">
+                Wireframes y decisiones de UX antes de escribir código.
+              </p>
+            </div>
+          </div>
+          <div class="col-6 col-lg-3 reveal">
+            <div class="pt-3" style="border-top: 1px solid var(--border)">
+              <span class="eyebrow font-mono">03</span>
+              <h3 class="h5 mt-3 mb-2">Desarrollo</h3>
+              <p class="text-muted-custom small">
+                Construcción iterativa, con foco en código mantenible.
+              </p>
+            </div>
+          </div>
+          <div class="col-6 col-lg-3 reveal">
+            <div class="pt-3" style="border-top: 1px solid var(--border)">
+              <span class="eyebrow font-mono">04</span>
+              <h3 class="h5 mt-3 mb-2">Entrega</h3>
+              <p class="text-muted-custom small">
+                Pruebas, ajustes finales y documentación clara.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= EXPERIENCIA / EDUCACIÓN / CERTIFICACIONES ================= -->
+    <section id="experiencia" class="section">
+      <div class="container">
+        <span class="eyebrow d-block mb-3 reveal">06 — Experiencia</span>
+        <h2 class="section-title mask-line"><span>Trayectoria</span></h2>
+
+        <!-- TODO: reemplazar con tu experiencia real. Si agregás o quitás roles,
+               mantené el mismo data-gallery-index en el item y en su panel. -->
+        <div class="scroll-gallery mb-5">
+          <div class="row g-5">
+            <div class="col-lg-6">
+              <div class="scroll-gallery__list">
+                <div class="scroll-gallery__item" data-gallery-index="0">
+                  <span class="eyebrow">Hoy en día</span>
+                  <h3 class="h4 mt-2 mb-1">Desarrollador Full Stack Java</h3>
+                  <p class="text-muted-custom mb-1">Freelance / Proyectos propios</p>
+                  <p class="text-muted-custom" style="max-width: 28rem">
+                    Desarrollo de aplicaciones web con Java y Spring Boot en el backend, y
+                    Bootstrap en el frontend.
+                  </p>
+                  <div class="scroll-gallery__media-inline d-lg-none mt-4">
+                    <i class="bi bi-briefcase"></i>
+                  </div>
+                </div>
+
+                <div class="scroll-gallery__item" data-gallery-index="1">
+                  <span class="eyebrow">2026</span>
+                  <h3 class="h4 mt-2 mb-1">Bootcamp Full Stack Java Trainer</h3>
+                  <p class="text-muted-custom mb-1">Instituto ISEC </p>
+                  <p class="text-muted-custom" style="max-width: 28rem">
+                    Formación intensiva en desarrollo Frontend y backend con Java, tecnologias y bases de datos
+                    relacionales.
+                  </p>
+                  <div class="scroll-gallery__media-inline d-lg-none mt-4">
+                    <i class="bi bi-mortarboard"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6 d-none d-lg-block">
+              <div class="scroll-gallery__media-wrap">
+                <div class="scroll-gallery__media">
+                  <!-- Sin foto por rol: panel gráfico con ícono + rol + período.
+                         Si más adelante tenés logos de empresas, reemplazá el <i>
+                         por <img src="..."> siguiendo el mismo patrón que Proyectos. -->
+                  <div class="scroll-gallery__media-item is-active" data-gallery-index="0">
+                    <div class="d-flex flex-column align-items-center gap-3 px-4 text-center">
+                      <i class="bi bi-briefcase"></i>
+                      <span class="eyebrow mb-0">Presente</span>
+                      <p class="mb-0 fw-medium">Desarrollador Full Stack Java</p>
+                    </div>
+                  </div>
+                  <div class="scroll-gallery__media-item" data-gallery-index="1">
+                    <div class="d-flex flex-column align-items-center gap-3 px-4 text-center">
+                      <i class="bi bi-mortarboard"></i>
+                      <span class="eyebrow mb-0">2026</span>
+                      <p class="mb-0 fw-medium">Bootcamp Full Stack Java Trainer</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- ================= Educación (preparado para el futuro) ================= -->
+        <!--<div class="row g-5">
+            <div class="col-lg-6">
+              <div class="reveal">
+                <h3 class="eyebrow mb-4">Educación</h3>
+                <div class="pt-3" style="border-top: 1px solid var(--border)">
+                  <span class="eyebrow">2022 — 2025</span>
+                  <p class="fw-medium mt-1 mb-0">Título / Carrera</p>
+                  <p class="text-muted-custom small">Nombre de la institución</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6">
+              <div class="reveal">
+                <h3 class="eyebrow mb-4">Certificaciones</h3>
+                <div class="pt-3" style="border-top: 1px solid var(--border)">
+                  <div class="d-flex justify-content-between align-items-start">
+                    <div>
+                      <p class="fw-medium mb-0">Nombre de la certificación</p>
+                      <p class="text-muted-custom small">Entidad emisora · 2025</p>
+                    </div>
+                    <a href="#" class="text-muted-custom" aria-label="Ver credencial"
+                      ><i class="bi bi-box-arrow-up-right"></i
+                    ></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>-->
+
+        <!-- ================= BLOG (preparado para el futuro) ================= -->
+        <!--<section id="blog" class="section">
+        <div class="container">
+          <div class="d-flex flex-wrap justify-content-between align-items-end mb-4">
+            <div>
+              <span class="eyebrow d-block mb-3 reveal">07 — Blog</span>
+              <h2 class="section-title mb-0 mask-line"><span>Blog técnico</span></h2>
+            </div>
+            <span class="badge-custom mb-3 reveal">Próximamente</span>
+          </div>
+
+          <div class="row g-4">
+            <div class="col-md-4 reveal" style="opacity: 0.5">
+              <div class="card-custom p-4 h-100">
+                <i class="bi bi-file-text text-muted-custom fs-4"></i>
+                <div class="mt-3 rounded-pill" style="height: 10px; width: 75%; background: var(--border)"></div>
+                <div class="mt-2 rounded-pill" style="height: 10px; width: 50%; background: var(--border)"></div>
+              </div>
+            </div>
+            <div class="col-md-4 reveal" style="opacity: 0.5">
+              <div class="card-custom p-4 h-100">
+                <i class="bi bi-file-text text-muted-custom fs-4"></i>
+                <div class="mt-3 rounded-pill" style="height: 10px; width: 75%; background: var(--border)"></div>
+                <div class="mt-2 rounded-pill" style="height: 10px; width: 50%; background: var(--border)"></div>
+              </div>
+            </div>
+            <div class="col-md-4 reveal" style="opacity: 0.5">
+              <div class="card-custom p-4 h-100">
+                <i class="bi bi-file-text text-muted-custom fs-4"></i>
+                <div class="mt-3 rounded-pill" style="height: 10px; width: 75%; background: var(--border)"></div>
+                <div class="mt-2 rounded-pill" style="height: 10px; width: 50%; background: var(--border)"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>-->
+
+        <!-- ================= CONTACTO ================= -->
+        <section id="contacto" class="section">
+          <div class="container">
+            <div class="row g-5">
+              <div class="col-lg-5">
+                <span class="eyebrow d-block mb-3 reveal">08 — Contacto</span>
+                <h2 class="section-title mask-line">
+                  <span>Trabajemos</span>
+                </h2>
+                <p class="text-muted-custom fs-5 reveal" style="max-width: 26rem; margin-top: -1.5rem">
+                  ¿Tienes un proyecto en mente? Cuentame de qué se trata y te respondo a la
+                  brevedad.
+                </p>
+
+                <div class="d-flex flex-wrap gap-4 mt-4 reveal">
+                  <a href="https://github.com/erickjavierquiroztoro-cpu" target="_blank" rel="noopener noreferrer" class="link-underline text-muted-custom text-decoration-none d-flex align-items-center gap-2"
+                    ><i class="bi bi-github"></i>GitHub</a>
+                  <a href="https://www.linkedin.com/in/erick-quiroz-toro-610a0a24a" target="_blank" rel="noopener noreferrer" class="link-underline text-muted-custom text-decoration-none d-flex align-items-center gap-2"
+                    ><i class="bi bi-linkedin"></i>LinkedIn</a>
+                  <a href="mailto:erickjavierquiroztoro@gmail.com" class="link-underline text-muted-custom text-decoration-none d-flex align-items-center gap-2"
+                    ><i class="bi bi-envelope"></i>Email</a>
+                  <a href="https://wa.me/56975212219" target="_blank" rel="noopener noreferrer" class="link-underline text-muted-custom text-decoration-none d-flex align-items-center gap-2"
+                    ><i class="bi bi-whatsapp"></i>WhatsApp</a>
+                </div>
+              </div>
+
+              <div class="col-lg-7 reveal">
+                  <!-- Mensaje de éxito, oculto hasta el envío -->
+                  <div class="d-none align-items-start gap-3 p-4 mb-4" style="border: 1px solid var(--border)"
+                    id="contactSuccess" role="status">
+                    <i class="bi bi-check-circle-fill text-brass fs-4"></i>
+                    <div>
+                      <p class="fw-medium mb-1">Mensaje enviado</p>
+                      <p class="text-muted-custom small mb-0">
+                        Gracias por escribirme, te voy a responder a la brevedad.
+                      </p>
+                    </div>
+                  </div>
+
+                  <form id="contactForm" novalidate>
+                    <div class="mb-4">
+                      <label for="name" class="form-label-custom">Nombre</label>
+                      <input type="text" class="form-control form-control-custom" id="name" name="name"
+                        placeholder="Tu nombre" required minlength="2" />
+                      <div class="invalid-feedback">Ingresá tu nombre completo.</div>
+                    </div>
+                    <div class="mb-4">
+                      <label for="email" class="form-label-custom">Email</label>
+                      <input type="email" class="form-control form-control-custom" id="email" name="email"
+                        placeholder="tu@email.com" required />
+                      <div class="invalid-feedback">Ingresá un email válido.</div>
+                    </div>
+                    <div class="mb-4">
+                      <label for="message" class="form-label-custom">Mensaje</label>
+                      <textarea class="form-control form-control-custom" id="message" name="message" rows="4"
+                        placeholder="Contame sobre tu proyecto..." required minlength="10"></textarea>
+                      <div class="invalid-feedback">Cuentame un poco más (mínimo 10 caracteres).</div>
+                    </div>
+
+                    <div class="d-none alert alert-danger" id="contactError" role="alert">
+                      No se pudo enviar el mensaje. Intentá de nuevo en unos minutos.
+                    </div>
+
+                    <button type="submit" class="btn-primary-custom">
+                      Enviar mensaje <i class="bi bi-send"></i>
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+        </section>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="footer-custom">
+    <div class="container d-flex flex-column flex-sm-row align-items-center justify-content-between gap-3">
+      <p class="text-muted-custom small mb-0">© <span id="year"></span> ◜Erick Javier◞. Todos los derechos reservados.
+      </p>
+      <div class="d-flex gap-4">
+        <a href="https://github.com/erickjavierquiroztoro-cpu" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="bi bi-github"></i></a>
+        <a href="https://www.linkedin.com/in/erick-quiroz-toro-610a0a24a" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+        <a href="mailto:erickjavierquiroztoro@gmail.com" aria-label="Email"><i class="bi bi-envelope"></i></a>
+        <a href="https://wa.me/56975212219" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+      </div>
+      <a href="#inicio" class="link-underline small text-decoration-none">Volver arriba ↑</a>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/gradient-bg.js"></script>
+  <script src="assets/js/hero-video-key.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/loader.js"></script>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+
+</html>
